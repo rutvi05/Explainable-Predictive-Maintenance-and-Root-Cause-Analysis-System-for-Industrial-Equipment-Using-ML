@@ -10,16 +10,19 @@ st.title("⚙️ Industrial Predictive Maintenance Dashboard")
 st.markdown("Enter live telemetry to check the machine's mechanical health.")
 
 # Hide the GitHub icon
-hide_github_icon = """
+clean_menu_css = """
             <style>
-            /* Hide the GitHub link/icon */
+            /* Hide the specific Streamlit Cloud viewer badges (Fork, Star, etc) */
+            .viewerBadge_container { display: none !important; }
+            
+            /* Hide any header links pointing to GitHub */
             header a[href^="https://github.com"] { display: none !important; }
-            /* Hide the Deploy button */
-            [data-testid="stAppDeployButton"] { display: none !important; }
-            .stDeployButton { display: none !important; }
+            
+            /* Hide the extra action buttons in the toolbar */
+            header [data-testid="stToolbarActionButton"] { display: none !important; }
             </style>
             """
-st.markdown(hide_github_icon, unsafe_allow_html=True)
+st.markdown(clean_menu_css, unsafe_allow_html=True)
 
 # 2. Load the AI Brain AND the SHAP Explainer
 @st.cache_resource
