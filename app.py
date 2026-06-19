@@ -9,6 +9,15 @@ st.set_page_config(page_title="Equipment Diagnostic UI", layout="wide")
 st.title("⚙️ Industrial Predictive Maintenance Dashboard")
 st.markdown("Enter live telemetry to check the machine's mechanical health.")
 
+# Hide the Streamlit top toolbar and GitHub icon
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # 2. Load the AI Brain AND the SHAP Explainer
 @st.cache_resource
 def load_models():
